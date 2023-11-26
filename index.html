@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random-Images</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <nav class="navbar bg-body-tertiary shadow-lg p-0 ">
+        <div class="container-fluid bg-dark ps-5 p-1 m-0 border border-dark">
+            <span class="navbar-brand mb-0 h1 fs-1 text-primary "><strong>iGenerate</strong></span>
+        </div>
+    </nav>
+
+    <div id="image-display"
+        class="w-100 d-flex flex-column justify-content-center align-items-center border-1 p-lg-5 mt-5">
+        <img id="img-view" class="w-50 h-100 shadow-lg border-5 border-primary"
+            src="https://source.unsplash.com/600x400/?random" style="object-fit: contain; aspect-ratio:2/1;" />
+    </div>
+    <div class="userEnter d-flex  justify-content-center align-content-center">
+        <div class="mb-3 w-100 d-flex flex-column justify-content-center align-items-center">
+            <label for="userInp" class="form-label"><strong>Which One you need! <i
+                        class="fa-sharp fa-solid fa-image"></i></strong></label>
+            <input type="email" class="form-control w-25 border-3 border-dark-subtle" id="userInp"
+                aria-describedby="emailHelp">
+            <button onclick="generateImage()" type="button" draggable="false"
+                class=" p-2 px-4 m-3 btn btn-outline-primary">Generate</button>
+        </div>
+    </div>
+    <footer class="bg-black p-0 m-0 d-flex justify-content-around flex-column align-items-center"
+        style="height: 5rem; position: relative; bottom: -3rem;">
+        <span class="text-primary bold fs-5 "><strong>&copy;Havyas U</strong></span>
+        <div class="d-flex flex-row justify-content-center g-3 align-items-center">
+            <span><a class="link-underline-opacity-0 link-info fs-4 fa-brands fa-github text-primary"
+                    href="https://github.com/HavyasRai"></a></span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span><a class="link-underline-opacity-0 link-info fs-4 fa-brands fa-linkedin text-primary"
+                    href="https://www.linkedin.com/in/havyas-u-1220b3230/"></a></span>
+        </div>
+    </footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const imgView = document.getElementById('img-view');
+    const userInp = document.getElementById('userInp');
+    let imgLink = " ";
+
+    const generateImage = () => {
+        imgView.src = " ";
+        imgView.src = `https://source.unsplash.com/600x400/?${userInp.value}`;
+        imgLink = imgView.src;
+
+    };
+
+    window.onkeydown = (e) => {
+        if (e.key == 'Enter') {
+            generateImage();
+        }
+    };
+
+
+
+</script>
+
+
+</html>
